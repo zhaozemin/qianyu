@@ -29,7 +29,6 @@ window.Vue = require('vue');
 // 此处需在引入 Vue 之后引入
 require('./components/SelectDistrict');
 require('./components/UserAddressesCreateAndEdit');
-require('sweetalert');
 
 const app = new Vue({
     el: '#app',
