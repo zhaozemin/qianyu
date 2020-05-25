@@ -9,14 +9,14 @@ class CartService
 {
     public function get()
     {
-       return Auth::user()->cateItems()->with(['productSku.product'])->get();
+       return Auth::user()->cartItems()->with(['productSku.product'])->get();
     }
 
     public function add($skuId,$amount)
     {
        $user = Auth::user();
        //从数据库中查询该商品是否已经在购物车中
-        if ($item = $user->cateItems()->where('product_sku_id',$skuId)->first()){
+        if ($item = $user->cartItems()->where('product_sku_id',$skuId)->first()){
             $item->update([
                 'amount'=>$this->amount + $amount,
             ]);
@@ -24,7 +24,7 @@ class CartService
             // 否则创建一个新的购物车记录
             $item = new CartItem(['amount'=>$amount]);
             $item->user()->associate($user);
-            $item->product()->associate($skuId);
+            $item->productSku()->associate($skuId);
             $item->save();
         }
 
