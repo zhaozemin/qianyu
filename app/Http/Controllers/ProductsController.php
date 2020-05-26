@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\InvalidRequestException;
+use App\Models\OrderItem;
 use App\Models\Product;
+use Hamcrest\Number\OrderingComparisonTest;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -64,7 +66,18 @@ class ProductsController extends Controller
             $favored = boolval($user->favoriteProducts()->find($product->id));
         }
 
-        return view('products.show', ['product' => $product, 'favored' => $favored]);
+        $reviews = OrderItem::query()
+            ->with(['productSku','order.user'])
+            ->where('product_id',$product->id)
+            ->whereNotNull('reviewed_at')
+            ->limit(10)
+            ->get();
+
+        return view('products.show', [
+            'product' => $product,
+            'favored' => $favored,
+            'reviews' => $reviews,
+        ]);
     }
 
     public function favor(Product $product, Request $request)
