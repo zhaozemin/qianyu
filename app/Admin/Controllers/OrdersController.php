@@ -38,7 +38,7 @@ class OrdersController extends AdminController
         // 展示关联关系的字段时，使用 column 方法
         $grid->column('user.name','买家');
         $grid->total_amount('总金额')->sortable();
-        $grid->pait_at('支付时间')->sortable();
+        $grid->paid_at('支付时间')->sortable();
         $grid->ship_status('物流')->display(function ($value){
             return Order::$shipStatusMap[$value];
         });
