@@ -18,7 +18,7 @@ class CartService
        //从数据库中查询该商品是否已经在购物车中
         if ($item = $user->cartItems()->where('product_sku_id',$skuId)->first()){
             $item->update([
-                'amount'=>$this->amount + $amount,
+                'amount'=>$item->amount + $amount,
             ]);
         }else{
             // 否则创建一个新的购物车记录
@@ -41,4 +41,5 @@ class CartService
 
         Auth::user()->cartItems()->whereIn('product_sku_id',$skuIds)->delete();
     }
+
 }
