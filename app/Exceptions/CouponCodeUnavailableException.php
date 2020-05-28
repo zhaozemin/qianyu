@@ -2,8 +2,9 @@
 
 namespace App\Exceptions;
 
-use App\Http\Requests\Request;
 use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CouponCodeUnavailableException extends Exception
 {

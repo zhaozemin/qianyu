@@ -207,6 +207,7 @@
                         location.href = '/orders/' + response.data.id;
                     });
                 }, function (error) {
+                    console.log(error.response);
                     if (error.response.status === 422) {
                         // http 状态码为 422 代表用户输入校验失败
                         var html = '<div>';
@@ -217,7 +218,9 @@
                         });
                         html += '</div>';
                         swal({content: $(html)[0], icon: 'error'})
-                    } else {
+                    }if(error.response.status === 403){
+                        swal(error.response.data.msg, '', 'error');
+                    }else {
                         // 其他情况应该是系统挂了
                         swal('系统错误', '', 'error');
                     }
