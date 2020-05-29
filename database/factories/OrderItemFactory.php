@@ -8,7 +8,7 @@ use App\Models\Product;
 
 $factory->define(OrderItem::class, function (Faker $faker) {
     // 从数据库随机取一条商品
-    $product = Product::query()->where('is_sale',true)->inRandomOrder()->first();
+    $product = Product::query()->where('on_sale',true)->inRandomOrder()->first();
     // 从该商品的 SKU 中随机取一条
     $sku = $product->skus()->inRandomOrder()->first();
 
