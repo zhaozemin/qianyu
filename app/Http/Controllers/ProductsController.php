@@ -6,6 +6,7 @@ use App\Exceptions\InvalidRequestException;
 use App\Models\Category;
 use App\Models\OrderItem;
 use App\Models\Product;
+use App\Services\CategoryService;
 use Hamcrest\Number\OrderingComparisonTest;
 use Illuminate\Http\Request;
 
@@ -67,6 +68,7 @@ class ProductsController extends Controller
             ],
             // 等价于 isset($category) ? $category : null
             'category' => $category ?? null,
+            // 将类目树传递给模板文件
         ]);
     }
     public function show(Product $product, Request $request)
