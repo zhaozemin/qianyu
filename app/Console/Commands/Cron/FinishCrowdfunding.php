@@ -16,14 +16,14 @@ class FinishCrowdfunding extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'cron:finish-crowdfunding';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = '结束众筹';
 
     /**
      * Create a new command instance.
@@ -50,6 +50,7 @@ class FinishCrowdfunding extends Command
             ->get()
             ->each(function (CrowdfundingProduct $crowdfunding) {
                 //如果众筹目标金额大于实际众筹金额
+                \Log::info(json_encode($crowdfunding));
                 if ($crowdfunding->target_amount > $crowdfunding->total_amount) {
                     // 调用众筹失败逻辑
                     $this->crowdfundingFailed($crowdfunding);
@@ -62,6 +63,7 @@ class FinishCrowdfunding extends Command
 
     public function crowdfundingSuccessd(CrowdfundingProduct $crowdfunding)
     {
+        \Log::info(111);
         // 只需将众筹状态改为众筹成功即可
         $crowdfunding->update([
             'status' => CrowdfundingProduct::STATUS_SUCCESS,
@@ -70,6 +72,7 @@ class FinishCrowdfunding extends Command
 
     public function crowdfundingFailed(CrowdfundingProduct $crowdfunding)
     {
+        \Log::info(222);
         // 将众筹状态改为众筹失败
         $crowdfunding->update([
             'status' => CrowdfundingProduct::STATUS_FAIL,
