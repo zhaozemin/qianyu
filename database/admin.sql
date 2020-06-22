@@ -21,7 +21,7 @@
 
 LOCK TABLES `admin_menu` WRITE;
 /*!40000 ALTER TABLE `admin_menu` DISABLE KEYS */;
-INSERT INTO `admin_menu` VALUES (1,0,1,'首页','fa-bar-chart','/',NULL,NULL,NULL),(2,0,9,'管理系统','fa-tasks',NULL,NULL,NULL,'2020-05-30 15:28:15'),(3,2,10,'管理员','fa-users','auth/users',NULL,NULL,'2020-05-30 15:28:15'),(4,2,11,'角色','fa-user','auth/roles',NULL,NULL,'2020-05-30 15:28:15'),(5,2,12,'权限','fa-ban','auth/permissions',NULL,NULL,'2020-05-30 15:28:15'),(6,2,13,'菜单','fa-bars','auth/menu',NULL,NULL,'2020-05-30 15:28:15'),(7,2,14,'操作日志','fa-history','auth/logs',NULL,NULL,'2020-05-30 15:28:15'),(8,0,2,'用户管理','fa-users','/users',NULL,NULL,NULL),(9,0,4,'商品管理','fa-cubes','/products',NULL,NULL,'2020-05-29 20:09:22'),(10,0,7,'订单管理','fa-rmb','/orders',NULL,NULL,'2020-05-30 15:28:15'),(11,0,8,'优惠券管理','fa-tags','/coupon_codes',NULL,NULL,'2020-05-30 15:28:15'),(12,0,3,'类目管理','fa-bars','/categories',NULL,'2020-05-29 20:08:59','2020-05-29 20:09:22'),(13,9,6,'众筹管理','fa-bars','/crowdfunding_products',NULL,'2020-05-30 15:27:03','2020-05-30 15:28:15'),(14,9,5,'普通商品','fa-bars','/products',NULL,'2020-05-30 15:27:58','2020-05-30 15:28:15');
+INSERT INTO `admin_menu` VALUES (1,0,1,'首页','fa-bar-chart','/',NULL,NULL,NULL),(2,0,6,'管理系统','fa-tasks',NULL,NULL,NULL,NULL),(3,2,7,'管理员','fa-users','auth/users',NULL,NULL,NULL),(4,2,8,'角色','fa-user','auth/roles',NULL,NULL,NULL),(5,2,9,'权限','fa-ban','auth/permissions',NULL,NULL,NULL),(6,2,10,'菜单','fa-bars','auth/menu',NULL,NULL,NULL),(7,2,11,'操作日志','fa-history','auth/logs',NULL,NULL,NULL),(8,0,2,'用户管理','fa-users','/users',NULL,NULL,NULL),(9,0,3,'商品管理','fa-cubes','/products',NULL,NULL,NULL),(10,0,4,'订单管理','fa-rmb','/orders',NULL,NULL,NULL),(11,0,5,'优惠券管理','fa-tags','/coupon_codes',NULL,NULL,NULL),(12,9,0,'秒杀','fa-bars','/seckill_products',NULL,'2020-06-23 00:00:39','2020-06-23 00:00:39'),(13,9,0,'众筹','fa-bars','/crowdfunding_products',NULL,'2020-06-23 00:00:53','2020-06-23 00:00:53'),(14,9,0,'普通','fa-bars','/products',NULL,'2020-06-23 00:01:07','2020-06-23 00:01:07');
 /*!40000 ALTER TABLE `admin_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-30  7:41:00
+-- Dump completed on 2020-06-22 16:11:00
