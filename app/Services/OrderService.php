@@ -13,6 +13,7 @@ use App\Models\ProductSku;
 use App\Jobs\CloseOrder;
 use App\Models\UserAddress;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redis;
 
 class OrderService{
     // 添加了一个 $coupon 的参数，可以为 null
@@ -222,6 +223,8 @@ class OrderService{
             $item->product()->associate($sku->product_id);
             $item->productSku()->associate($sku);
             $item->save();
+
+            Redis::decr('seckill_sku_'.$sku->id);
 
             return $order;
         });
