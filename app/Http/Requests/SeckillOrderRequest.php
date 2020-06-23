@@ -1,12 +1,12 @@
 <?php
 namespace App\Http\Requests;
 
-use app\common\lib\Redis;
 use App\Exceptions\InvalidRequestException;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductSku;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Validation\Rule;
 
 class SeckillOrderRequest extends Request
