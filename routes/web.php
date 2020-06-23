@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
+Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store')->middleware('random_drop:50');
 // 在之前的路由后面配上中间件
 //Route::get('/', 'PagesController@root')->name('root')->middleware('verified');
 //Route::get('/', 'PagesController@root')->name('root');
