@@ -9,7 +9,7 @@ use Encore\Admin\Traits\DefaultDatetimeFormat;
 
 class ProductsController extends CommonProductsController
 {
-use DefaultDatetimeFormat;
+    use DefaultDatetimeFormat;
 
     /**
      * Title for current resource.

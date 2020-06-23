@@ -4,9 +4,11 @@ namespace App\Admin\Controllers;
 use App\Models\Product;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
+use Encore\Admin\Traits\DefaultDatetimeFormat;
 
 class SeckillProductsController extends CommonProductsController
 {
+    use DefaultDatetimeFormat;
     public function getProductType()
     {
         return Product::TYPE_SECKILL;
